@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Wiping database..."
+Cocktail.destroy_all
+Dose.destroy_all
+Ingredient.destroy_all
+
+require 'open-uri'
+require 'json'
+response = open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').read
+response = JSON.parse(response)
+response["drinks"].each do |hash|
+  Ingredient.create!(name: hash.values[0])
+end
+
+p "let's see if this worked"
+p Ingredient.all
