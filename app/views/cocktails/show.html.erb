@@ -3,9 +3,9 @@ Wowza babowza what a nice cocktail
 <h3>List of doses:</h3>
 <li>
 <% @cocktail.doses.each do |dose|%>
-  <ul><p><%=dose%></p></ul>
+  <ul><p><%=dose.description%> <%= dose.ingredient.name%></p></ul>
 </li>
 <% end %>
-<p><%= link_to 'Add or delete doses', cocktail_doses_path(@cocktail) %></p>
+<p><%= link_to 'Add or delete doses', new_cocktail_dose_path(@cocktail, @dose) %></p>
 
 <p><%= link_to 'Return to drink index', cocktails_path %></p>
