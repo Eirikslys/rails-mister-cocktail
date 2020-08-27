@@ -1,6 +1,6 @@
 <% @cocktails.each do |cocktail| %>
   <div class="card">
     <h2><%= cocktail.name %></h2>
-    <p><%= link_to 'Show', cocktail_path(cocktail) %></p>
+    <p><%= link_to 'Show', cocktail_path(cocktail), class: "btn btn-gradient" %></p>
   </div>
 <% end %>
