@@ -1,5 +1,7 @@
 Wowza babowza what a nice cocktail
 <h2><%= @cocktail.name %></h2>
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
 <h3>List of doses:</h3>
 <li>
 <% @cocktail.doses.each do |dose|%>
