@@ -18,5 +18,5 @@ response["drinks"].each do |hash|
   Ingredient.create!(name: hash.values[0])
 end
 
-p "let's see if this worked"
+p "Ingredients seeded"
 p Ingredient.all
