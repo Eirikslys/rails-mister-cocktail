@@ -1,22 +1,29 @@
-<%= link_to 'New cocktail', new_cocktail_path, class: "btn btn-gradient" %>
+<div class= "index">
+  <%= link_to 'New cocktail', new_cocktail_path, class: "btn btn-gradient" %>
 
-<div class="cards">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-drink">
-      <div class="card-drink-inner">
-        <div class="card-drink-front">
-          <div class="post-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url_for(cocktail.photo) %>)">
-            <h2><%= cocktail.name %></h2>
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-drink">
+        <div class="card-drink-inner">
+          <div class="card-drink-front">
+            <div class="post-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url_for(cocktail.photo) %>)">
+              <h3><%= cocktail.name %></h3>
+              <ul>
+                <%cocktail.doses.each do |dose| %>
+                  <li><%=dose.description%> <%= dose.ingredient.name %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="card-drink-back">
-          <div class="post-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url_for(cocktail.photo) %>)">
-            <h2><%= cocktail.name %></h2>
-            <p><%= link_to 'Show', cocktail_path(cocktail), class: "btn btn-gradient" %></p>
+          <div class="card-drink-back">
+            <div class="post-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url_for(cocktail.photo) %>)">
+              <h2><%= cocktail.name %></h2>
+              <p><%= cocktail.description %></p>
+              <p><%= link_to 'edit', cocktail_path(cocktail), class: "btn btn-gradient" %></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-

@@ -1,5 +1,10 @@
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.simple_fields_for @dose do |p| %>
+    <%= p.association :ingredient %>
+    <%= p.input :description, label: "how much?" %>
+  <% end %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, "submit", class: "btn-ghost" %>
 <% end %>

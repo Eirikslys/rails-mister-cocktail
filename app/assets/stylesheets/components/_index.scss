@@ -2,3 +2,14 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+
+
+.index {
+  background: rgb(131,58,180);
+  background: linear-gradient(328deg, rgba(131,58,180,0.8) 0%, rgba(238,29,29,0.6710259103641457) 49%, rgba(252,176,69,0.8) 100%);
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+}
