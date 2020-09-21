@@ -1,10 +1,17 @@
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.simple_fields_for @dose do |p| %>
-    <%= p.association :ingredient %>
-    <%= p.input :description, label: "how much?" %>
-  <% end %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, "submit", class: "btn-ghost" %>
-<% end %>
+<div class="form-page">
+  <div class="form-cocktail">
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <p>fill out the doses and describe them</p>
+      <div class="ingredients">
+        <%= f.simple_fields_for [@cocktail, @dose] do |p| %>
+          <%= p.association :ingredient %>
+          <%= p.input :description, label: "how much and how?" %>
+        <% end %>
+      </div>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "submit", class: "btn-ghost" %>
+    <% end %>
+  </div>
+</div>
